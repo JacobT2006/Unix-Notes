@@ -2,7 +2,7 @@ body {
     margin: 0;
     display: flex;
     height: 100%;
-    background-color: white;
+    background-color: gray;
 }
 
 .app{
@@ -11,7 +11,7 @@ body {
 
 /* menu bar */
 .menu-bar {
-    background-color: darkgray;
+    background-color: gray;
     display: flex;
     flex-direction: row;
     width: 100vw;
@@ -26,11 +26,12 @@ body {
 .activity-bar{
     width: 50px;
     height: 100vh;
-    background-color: #333;
+    background-color: #333333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    border-right:1px solid gray;
     top: 4vh;
     left: 0;
     padding-top: 10px;
@@ -71,7 +72,7 @@ body {
     height: 100vh;
     width: 150px;
     overflow-y: hidden;
-    background-color: darkgrey;
+    background-color: #333333;
     justify-content: space-between; 
     top: 4vh;
     left: 50px;
