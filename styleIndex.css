@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    background-color: white;
+}
+
+.app{
+    display: flex;
+}
+
+/* menu bar */
+.menu-bar {
+    background-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 4vh;
+    border-bottom: 4px solid black;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* activity bar */
+.activity-bar{
+    width: 50px;
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    top: 4vh;
+    left: 0;
+    padding-top: 10px;
+    gap: 10px;
+    position: fixed;
+    z-index: 100;
+}
+
+.active-activity-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #2196f3; /* color */
+    mask: url('Assets/file_copy.svg') no-repeat center;
+    -webkit-mask: url('Assets/file_copy.svg') no-repeat center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+.active-activity-icon:hover {
+    background-color: #f44337; /* hover color */
+}
+
+.activity-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #2196f3; /* color */
+    mask: url('Assets/quit.svg') no-repeat center;
+    -webkit-mask: url('Assets/quit.svg') no-repeat center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+.activity-icon:hover {
+    background-color: #f44336; /* hover color */
+}
+
+/* sidebar */
+.sidebar {
+    flex-direction: column;
+    height: 100vh;
+    width: 150px;
+    overflow-y: hidden;
+    background-color: darkgrey;
+    justify-content: space-between; 
+    top: 4vh;
+    left: 50px;
+    gap: 15px;
+    position: relative;
+    transition: width 0.01s;
+}
+
+.sidebar-resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100vh;
+    cursor: ew-resize;
+    background: black;
+    z-index: 10;
+}
+
+#sidebar-header {
+    color: black;
+}
