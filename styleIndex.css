@@ -5,12 +5,13 @@ body {
     background-color: gray;
 }
 
+/* app container */
 .app{
     display: flex;
     margin-top: 4vh;
 }
 
-/* menu bar */
+/* menu bar/title bar */
 .title-bar {
     -webkit-app-region: drag; /* allows dragging the window */
     height: 32px;
@@ -42,27 +43,48 @@ body {
     top: 32px;
     left: 0;
     padding-top: 10px;
-    gap: 10px;
     position: fixed;
     z-index: 100;
 }
 
+/* Activity bar active svg container */
+.active-svg {
+    padding-left: 10px;
+    border-left: 5px solid #f44337;
+    display: flex;
+    justify-content: center;
+}
+
+/* Activity bar item active */
 .active-activity-icon {
-    width: 24px;
-    height: 24px;
-    background-color: #2196f3; /* color */
+    width: 32px;
+    height: 32px;
+    background-color: #f44337; /* color */
     mask: url('Assets/file_copy.svg') no-repeat center;
     -webkit-mask: url('Assets/file_copy.svg') no-repeat center;
     mask-size: contain;
     -webkit-mask-size: contain;
-}
-.active-activity-icon:hover {
-    background-color: #f44337; /* hover color */
+    
 }
 
+/* Activity bar item non active number 3 */
+.activity-icon.three {
+    width: 32px;
+    height: 32px;
+    background-color: #2196f3; /* color */
+    mask: url('Assets/plus.svg') no-repeat center;
+    -webkit-mask: url('Assets/plus.svg') no-repeat center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+.activity-icon.three:hover {
+    background-color: #f44336; 
+}
+
+/* Activity bar item non active number 2 */
 .activity-icon.two {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     background-color: #2196f3; /* color */
     mask: url('Assets/quit.svg') no-repeat center;
     -webkit-mask: url('Assets/quit.svg') no-repeat center;
@@ -70,12 +92,13 @@ body {
     -webkit-mask-size: contain;
 }
 .activity-icon.two:hover {
-    background-color: #f44336; /* hover color */
+    background-color: #f44336; 
 }
 
+/* Activity bar item non active number 1 */
 .activity-icon.one {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     background-color: #2196f3; /* color */
     mask: url('Assets/document_search.svg') no-repeat center;
     -webkit-mask: url('Assets/document_search.svg') no-repeat center;
@@ -83,10 +106,10 @@ body {
     -webkit-mask-size: contain;
 }
 .activity-icon.one:hover {
-    background-color: #f44336; /* hover color */
+    background-color: #f44336; 
 }
 
-/* sidebar */
+/* sidebar overall class*/
 .sidebar {
     flex-direction: column;
     height: 96vh;
@@ -101,6 +124,7 @@ body {
     transition: width 0.01s;
 }
 
+/* Sidebar resize item class */
 .sidebar-resizer {
     position: absolute;
     top: 0;
@@ -110,10 +134,6 @@ body {
     cursor: ew-resize;
     background: 202020;
     z-index: 10;
-}
-
-#sidebar-header {
-    color: black;
 }
 
 

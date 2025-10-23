@@ -26,4 +26,21 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   const { ipcRenderer } = require('electron');
+
+  // In renderer.js or a script tag in index.html
+  async function handleCreateFile() {
+    const fileName = 'my-new-file.txt';
+    const fileContent = 'This is the content of my new file.';
+    const result = await window.electron.createFile(fileName, fileContent);
+  
+    if (result.success) {
+      console.log(result.message);
+    } else {
+      console.error(result.message);
+    }
+  }
+  
+  // Example usage
+  document.getElementById('createFileButton').addEventListener('click', handleCreateFile);
+
 })

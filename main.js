@@ -28,8 +28,6 @@ const createWindow = () => {
       popupMenu.popup(win.webContents)
     });
 
-    
-
 };
 
 // create on screen UI
@@ -40,4 +38,16 @@ app.whenReady().then(() => {
 // UI go bye bye
 app.on('window-all-closed', () =>{
   app.quit();
+});
+
+
+
+ipcMain.handle('create-file', async (event, fileName, content) => {
+  try {
+    const filePath = path.join(app.getPath('userData'), fileName); // Example: saving in app's user data directory
+    fs.writeFileSync(filePath, content, 'utf-8');
+    return { success: true, message: `File '${fileName}' created successfully at ${filePath}` };
+  } catch (error) {
+    return { success: false, message: `Error creating file: ${error.message}` };
+  }
 });

@@ -6,30 +6,36 @@
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleIndex.css">
+    
+    <!-- title bar -->
     <div class="title-bar">
+    
     </div>
 </head>
 <body>
     <div class="app">
-        <!-- menu bar -->
-        <!-- <div class="menu-bar"> -->
-            <!-- Menu items -->
+        <!-- Menu items -->
         
-            <!-- Activity bar -->
-            <div class="activity-bar">
+        <!-- Activity bar -->
+        <div class="activity-bar">
+            <!-- Activity bar items -->
+            <div class="active-svg">
                 <svg class="active-activity-icon" data-src="Assets/file_copy.svg"></svg>
-                <svg class="activity-icon one" data-src="Assets/document_search.svg"></svg>
-                <svg class="activity-icon two" data-src="Assets/quit.svg"></svg>
             </div>
-            
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- <h2 id="sidebar-header">Notes</h2> -->
-                <div class="sidebar-resizer"></div>
-            </div>
+            <svg class="activity-icon three" id="createFileButton" data-src="Assets/plus.svg"></svg>
 
-            <!-- text area -->
-        <!-- </div> -->
+            <svg class="activity-icon one" data-src="Assets/document_search.svg"></svg>
+
+            <svg class="activity-icon two" data-src="Assets/quit.svg"></svg>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar items -->
+            <div class="sidebar-resizer"></div>
+        </div>
+
+        <!-- Note area -->
     </div>
 </body>
 <script src="main.js"></script>
