@@ -1,38 +1,45 @@
 body {
     margin: 0;
     display: flex;
-    height: 100%;
+    overflow: hidden;
     background-color: gray;
 }
 
 .app{
     display: flex;
+    margin-top: 4vh;
 }
 
 /* menu bar */
-.menu-bar {
-    background-color: gray;
+.title-bar {
+    -webkit-app-region: drag; /* allows dragging the window */
+    height: 32px;
+    min-width: 100vw;
     display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 4vh;
-    border-bottom: 4px solid black;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    align-items: center;
+    padding-left: 10px;
+    background: #202020;
+}
+.title-bar button {
+    -webkit-app-region: no-drag;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: none;
 }
 
 /* activity bar */
 .activity-bar{
     width: 50px;
-    height: 100vh;
+    height: 96vh;
     background-color: #333333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     border-right:1px solid gray;
-    top: 4vh;
+    top: 32px;
     left: 0;
     padding-top: 10px;
     gap: 10px;
@@ -53,7 +60,7 @@ body {
     background-color: #f44337; /* hover color */
 }
 
-.activity-icon {
+.activity-icon.two {
     width: 24px;
     height: 24px;
     background-color: #2196f3; /* color */
@@ -62,22 +69,35 @@ body {
     mask-size: contain;
     -webkit-mask-size: contain;
 }
-.activity-icon:hover {
+.activity-icon.two:hover {
+    background-color: #f44336; /* hover color */
+}
+
+.activity-icon.one {
+    width: 24px;
+    height: 24px;
+    background-color: #2196f3; /* color */
+    mask: url('Assets/document_search.svg') no-repeat center;
+    -webkit-mask: url('Assets/document_search.svg') no-repeat center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+.activity-icon.one:hover {
     background-color: #f44336; /* hover color */
 }
 
 /* sidebar */
 .sidebar {
     flex-direction: column;
-    height: 100vh;
+    height: 96vh;
     width: 150px;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     background-color: #333333;
     justify-content: space-between; 
-    top: 4vh;
+    top: 32px;
     left: 50px;
     gap: 15px;
-    position: relative;
+    position: fixed;
     transition: width 0.01s;
 }
 
@@ -86,12 +106,15 @@ body {
     top: 0;
     right: 0;
     width: 4px;
-    height: 100vh;
+    height: 96vh;
     cursor: ew-resize;
-    background: black;
+    background: 202020;
     z-index: 10;
 }
 
 #sidebar-header {
     color: black;
 }
+
+
+  
