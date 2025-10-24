@@ -4,5 +4,5 @@ Notes app made on Mac by frustrated college student who took 3 days to get it fi
 
 ### run command
 ```
-npm electron .
+npx electron .
 ```
