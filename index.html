@@ -15,18 +15,22 @@
 <body>
     <div class="app">
         <!-- Menu items -->
-        
+        <div class="window-controls">
+            <button id="close-btn" class="control-btn close"></button>
+            <button id="minimize-btn" class="control-btn minimize"></button>
+            <button id="maximize-btn" class="control-btn maximize"></button>
+        </div>
         <!-- Activity bar -->
         <div class="activity-bar">
             <!-- Activity bar items -->
-            <div class="active-svg">
-                <svg class="active-activity-icon" data-src="Assets/file_copy.svg"></svg>
-            </div>
-            <svg class="activity-icon three" id="createFileButton" data-src="Assets/plus.svg"></svg>
+            
+            <svg class="active-activity-icon" src="Assets/file_copy.svg"></svg>
+            
+            <svg class="activity-icon three" id="createFileButton" src="Assets/plus.svg"></svg>
 
-            <svg class="activity-icon one" data-src="Assets/document_search.svg"></svg>
+            <svg class="activity-icon one" src="Assets/document_search.svg"></svg>
 
-            <svg class="activity-icon two" data-src="Assets/quit.svg"></svg>
+            <svg class="activity-icon two" src="Assets/quit.svg"></svg>
         </div>
         
         <!-- Sidebar -->
@@ -36,6 +40,7 @@
         </div>
 
         <!-- Note area -->
+        <h1>notes</h1>
     </div>
 </body>
 <script src="main.js"></script>

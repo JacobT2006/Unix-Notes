@@ -4,6 +4,11 @@ body {
     overflow: hidden;
     background-color: gray;
 }
+body.inactive {
+    filter: grayscale(100%) brightness(70%);
+    pointer-events: none; 
+    transition: filter 0.3s ease, brightness 0.3s ease;
+  }
 
 /* app container */
 .app{
@@ -13,7 +18,7 @@ body {
 
 /* menu bar/title bar */
 .title-bar {
-    -webkit-app-region: drag; /* allows dragging the window */
+    -webkit-app-region: drag; 
     height: 32px;
     min-width: 100vw;
     display: flex;
@@ -29,11 +34,30 @@ body {
     margin-right: 8px;
     border: none;
 }
+/* window buttons */
+.window-controls {
+    -webkit-app-region: no-drag; 
+    display: flex;
+    position: absolute;
+    top: 9px;
+    left: 8px;
+}
+.control-btn {
+    border: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+}
+  
+.close { background-color: #ff5f56; width: 15px; height: 15px;}
+.minimize { background-color: #ffbd2e; width: 15px; height: 15px;}
+.maximize { background-color: #27c93f; width: 15px; height: 15px;}
 
 /* activity bar */
 .activity-bar{
     width: 50px;
-    height: 96vh;
+    height: 100vh;
     background-color: #333333;
     display: flex;
     flex-direction: column;
@@ -44,15 +68,8 @@ body {
     left: 0;
     padding-top: 10px;
     position: fixed;
+    gap: 20px;
     z-index: 100;
-}
-
-/* Activity bar active svg container */
-.active-svg {
-    padding-left: 10px;
-    border-left: 5px solid #f44337;
-    display: flex;
-    justify-content: center;
 }
 
 /* Activity bar item active */
@@ -66,12 +83,25 @@ body {
     -webkit-mask-size: contain;
     
 }
+.active-activity-icon::before {
+    content: '';  
+    position: absolute;
+    left: 0;  
+    top: 0;
+    bottom: 0;
+    width: 5px;  
+    background-color: #f44337; 
+    mask: url('Assets/file_copy.svg') no-repeat left center; 
+    -webkit-mask: url('Assets/file_copy.svg') no-repeat left center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
 
 /* Activity bar item non active number 3 */
 .activity-icon.three {
     width: 32px;
     height: 32px;
-    background-color: #2196f3; /* color */
+    background-color: #2196f3;
     mask: url('Assets/plus.svg') no-repeat center;
     -webkit-mask: url('Assets/plus.svg') no-repeat center;
     mask-size: contain;
@@ -85,11 +115,12 @@ body {
 .activity-icon.two {
     width: 32px;
     height: 32px;
-    background-color: #2196f3; /* color */
+    background-color: #2196f3;
     mask: url('Assets/quit.svg') no-repeat center;
     -webkit-mask: url('Assets/quit.svg') no-repeat center;
     mask-size: contain;
     -webkit-mask-size: contain;
+    top: 95vh;
 }
 .activity-icon.two:hover {
     background-color: #f44336; 
@@ -99,7 +130,7 @@ body {
 .activity-icon.one {
     width: 32px;
     height: 32px;
-    background-color: #2196f3; /* color */
+    background-color: #2196f3; 
     mask: url('Assets/document_search.svg') no-repeat center;
     -webkit-mask: url('Assets/document_search.svg') no-repeat center;
     mask-size: contain;
@@ -112,9 +143,8 @@ body {
 /* sidebar overall class*/
 .sidebar {
     flex-direction: column;
-    height: 96vh;
+    height: 100vh;
     width: 150px;
-    /* overflow-y: hidden; */
     background-color: #333333;
     justify-content: space-between; 
     top: 32px;
@@ -136,5 +166,3 @@ body {
     z-index: 10;
 }
 
-
-  

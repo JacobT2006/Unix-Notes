@@ -1,5 +1,8 @@
+const { ipcRenderer } = require('electron');
+
 window.addEventListener('DOMContentLoaded', () => {
-  // Sidebar resizing
+  
+  // Sidebar resizing 
   const sidebar = document.querySelector('.sidebar');
   const resizer = document.querySelector('.sidebar-resizer');
   let isResizing = false;
@@ -25,22 +28,50 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const { ipcRenderer } = require('electron');
+// file funky
+async function handleCreateFile() {
+  const fileName = 'my-new-file.txt';
+  const fileContent = 'This is the content of my new file.';
+  const result = await window.electron.createFile(fileName, fileContent);
 
-  // In renderer.js or a script tag in index.html
-  async function handleCreateFile() {
-    const fileName = 'my-new-file.txt';
-    const fileContent = 'This is the content of my new file.';
-    const result = await window.electron.createFile(fileName, fileContent);
-  
-    if (result.success) {
-      console.log(result.message);
-    } else {
-      console.error(result.message);
-    }
+  if (result.success) {
+    alert("yes")
+    console.log(result.message);
+  } else {
+    console.error(result.message);
   }
+}
   
-  // Example usage
-  document.getElementById('createFileButton').addEventListener('click', handleCreateFile);
+document.getElementById('createFileButton').addEventListener('click', handleCreateFile);
 
-})
+  
+});
+
+//exit button(s)? -------------------------------------------------------------------------------------------------
+
+window.onload = () => {
+  const body = document.body;
+
+  // --- Window Control Buttons ---
+  document.getElementById('close-btn').addEventListener('click', () => {
+    ipcRenderer.send('window-control', 'close');
+  });
+
+  document.getElementById('minimize-btn').addEventListener('click', () => {
+    ipcRenderer.send('window-control', 'minimize');
+  });
+
+  document.getElementById('maximize-btn').addEventListener('click', () => {
+    ipcRenderer.send('window-control', 'maximize');
+  });
+
+  // --- Grey out when window not in use ---
+  window.addEventListener('blur', () => {
+    body.classList.add('inactive');
+  });
+
+  window.addEventListener('focus', () => {
+    body.classList.remove('inactive');
+  });
+};
+
