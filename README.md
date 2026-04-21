@@ -6,3 +6,5 @@ Notes app made on Mac by frustrated college student who took 3 days to get it fi
 ```
 npx electron .
 ```
+
+current application was shifted to website version and used for other project as of december of 2025
